@@ -8,14 +8,16 @@ class TodoForm extends React.Component {
 
         return (
             <div>
-                <form>
-                    <label for="add-todo" className="hidden">Add Todo</label>
+                <form onSubmit={props.handleSubmit}>
+                    <label htmlFor="add-todo" className="hidden">Add Todo</label>
                     <input
                         type='text'
                         id='add-todo'
                         value={props.inputValue}
                         onChange={props.handleChange}
                     />
+                    <button>Add</button>
+                    <button>Clear Completed</button>
                 </form>
             </div>
         );

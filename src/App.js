@@ -20,24 +20,39 @@ class App extends React.Component {
 
   addTodo = todoName => {
     const newTodo = {
-      task: String(todoName),
+      task: todoName,
       id: Date.now(),
       completed: false
     };
+    this.setState({
+      ...this.state,
+      todoList: [...this.state.todoList, newTodo]
+    }, this.clearInput);
   };
+
+  clearInput = () => this.setState({...this.state, inputValue: ''});
 
   handleChange = e => {
     this.setState({
       ...this.state,
       inputValue: e.target.value
-    })
-  }
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.addTodo(this.state.inputValue);
+  };
 
   render() {
     return (
       <div>
         <h1>Todo List</h1>
-        <TodoForm handleChange={this.handleChange} inputValue={this.state.inputValue}/>
+        <TodoForm
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          inputValue={this.state.inputValue}
+        />
         <TodoList todoList={this.state.todoList} />
       </div>
     );
