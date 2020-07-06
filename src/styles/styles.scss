@@ -1,0 +1,149 @@
+//Import
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap");
+
+//Variables
+$header-font: "Montserrat", sans-serif;
+$content-font: "Roboto", sans-serif;
+$primary-color: rgb(62, 168, 230);
+$completed-color: rgb(61, 184, 61);
+$font-color: rgb(27, 27, 27);
+//Reset
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+//Styles
+
+// Test boxes
+// * {
+//     border: 1px solid black;
+// }
+
+h1 {
+    font-size: 3rem;
+    font-family: $header-font;
+    text-transform: uppercase;
+    margin-bottom: 5rem;
+    color: $font-color;
+}
+
+p,
+label,
+input {
+    font-size: 2rem;
+    font-family: $content-font;
+    color: $font-color;
+}
+
+button {
+    font-size: 1.8rem;
+    margin: 0 0.2rem;
+    padding: 0.5rem 1.2rem;
+    text-transform: uppercase;
+    font-family: $header-font;
+    color: white;
+    border: none;
+    border-radius: 0.2rem;
+
+    &:hover {
+        filter: brightness(1.2);
+    }
+
+    &:active {
+        filter: none;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    .subtext {
+        font-size: 0.85rem;
+        color: white;
+    }
+}
+
+.btn-add {
+    font-size: 2.5rem;
+    background: $primary-color;
+}
+
+.btn-clear {
+    background: rgb(158, 158, 158);
+}
+
+.form-buttons {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.App {
+    margin: 5rem auto;
+    text-align: center;
+    width: 50%;
+    min-width: 400px;
+}
+
+.TodoList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.Todo {
+    border-left: 2px solid $primary-color;
+    border-radius: 0.2rem;
+    padding-left: 2rem;
+    margin: 1rem 0;
+    background: rgba(124, 124, 124, 0.1);
+    padding: 0.75rem;
+
+    p {
+        text-align: left;
+        font-size: 2.5rem;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    transition: background 0.2s, border 0.2s, color 0.2s;
+}
+
+.completed {
+    order: 1;
+    border-left: 4px solid $completed-color;
+
+    p {
+        color: rgb(156, 156, 156);
+    }
+}
+
+//use for screen-reader-only content
+.hidden {
+    position: absolute;
+    left: -99999rem;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+#add-todo {
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 0.2rem;
+    border: 2px solid rgb(59, 59, 59);
+
+    &:focus {
+        outline: 4px solid $primary-color;
+    }
+}
