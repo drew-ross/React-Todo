@@ -1,7 +1,22 @@
 import React from 'react';
 
 class App extends React.Component {
-  
+
+  constructor() {
+    super();
+    this.state = {
+      todoList: []
+    };
+  }
+
+  addTodo = todoName => {
+    const newTodo = {
+      task: String(todoName),
+      id: Date.now(),
+      completed: false
+    };
+  };
+
   render() {
     return (
       <div>
