@@ -30,7 +30,7 @@ class App extends React.Component {
     }, this.clearInput);
   };
 
-  clearInput = () => this.setState({...this.state, inputValue: ''});
+  clearInput = () => this.setState({ ...this.state, inputValue: '' });
 
   handleChange = e => {
     this.setState({
@@ -41,7 +41,24 @@ class App extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.addTodo(this.state.inputValue);
+    if (this.state.inputValue.trim() !== '')
+      this.addTodo(this.state.inputValue.trim());
+  };
+
+  toggleCompleted = itemId => {
+    this.setState({
+      ...this.state,
+      todoList: this.state.todoList.map(todo => {
+        if (todo.id === itemId) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
+        } else {
+          return todo;
+        }
+      })
+    });
   };
 
   render() {
@@ -53,7 +70,10 @@ class App extends React.Component {
           handleSubmit={this.handleSubmit}
           inputValue={this.state.inputValue}
         />
-        <TodoList todoList={this.state.todoList} />
+        <TodoList
+          todoList={this.state.todoList}
+          toggleCompleted={this.toggleCompleted}
+        />
       </div>
     );
   }
