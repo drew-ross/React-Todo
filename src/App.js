@@ -1,11 +1,13 @@
 import React from 'react';
 import TodoList from './components/TodoList.jsx';
+import TodoForm from './components/TodoForm';
 
 class App extends React.Component {
 
   constructor() {
     super();
     this.state = {
+      inputValue: '',
       todoList: [
         {
           task: 'Test Todo',
@@ -24,9 +26,18 @@ class App extends React.Component {
     };
   };
 
+  handleChange = e => {
+    this.setState({
+      ...this.state,
+      inputValue: e.target.value
+    })
+  }
+
   render() {
     return (
       <div>
+        <h1>Todo List</h1>
+        <TodoForm handleChange={this.handleChange} inputValue={this.state.inputValue}/>
         <TodoList todoList={this.state.todoList} />
       </div>
     );
