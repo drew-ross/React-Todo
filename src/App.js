@@ -70,8 +70,8 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Todo List</h1>
+      <div className='App'>
+        <h1>Todo</h1>
         <TodoForm
           inputValue={this.state.inputValue}
           handleChange={this.handleChange}

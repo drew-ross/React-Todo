@@ -7,7 +7,7 @@ class Todo extends React.Component {
         const { toggleCompleted } = this.props;
         return (
             <div
-                className={completed ? 'completed todo' : 'todo'}
+                className={completed ? 'completed Todo' : 'Todo'}
                 onClick={() => toggleCompleted(id)}
             >
                 <p>{task}</p>
