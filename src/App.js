@@ -1,11 +1,18 @@
 import React from 'react';
+import TodoList from './components/TodoList.jsx';
 
 class App extends React.Component {
 
   constructor() {
     super();
     this.state = {
-      todoList: []
+      todoList: [
+        {
+          task: 'Test Todo',
+          id: Date.now(),
+          completed: false
+        }
+      ]
     };
   }
 
@@ -20,7 +27,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <TodoList todoList={this.state.todoList} />
       </div>
     );
   }
